@@ -1,0 +1,20 @@
+package com.javanauta.cadastro_usuario.business;
+
+import org.springframework.stereotype.Service;
+
+import com.javanauta.cadastro_usuario.infrastructure.entitys.Usuario;
+import com.javanauta.cadastro_usuario.infrastructure.repository.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+
+    private final UsuarioRepository repository;
+
+    public UsuarioService(UsuarioRepository repository) {
+        this.repository = repository;
+    }
+
+    public void salvarUsuario(Usuario usuario) {
+        repository.saveAndFlush(usuario);
+    }
+}
